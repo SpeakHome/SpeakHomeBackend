@@ -1,2 +1,20 @@
-package com.ExcludedHouse.speakHome.device.resource;public class DeviceResource {
+package com.ExcludedHouse.speakHome.device.resource;
+
+import lombok.*;
+
+@Getter
+@Setter
+@With
+@NoArgsConstructor
+@AllArgsConstructor
+public class DeviceResource {
+    private Long id;
+    private String name;
+    private String type;
+    private String data;//json en txt
+    private String lastUpdate;
+    private Boolean isOnline;
+    private String description;
+    private LocationResource location;
+    private DeviceStatusResource deviceStatus;
 }

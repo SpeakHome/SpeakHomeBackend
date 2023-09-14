@@ -22,7 +22,6 @@ public class ChatMapper implements Serializable {
     }
 
     public Chat toModel(CreateChatResource resource) {
-
         /*return mapper.map(resource, Chat.class);*/
         Chat chat = new Chat();
         chat.setProfile1Id(resource.getProfile1Id());

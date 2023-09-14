@@ -25,6 +25,5 @@ public class CreateMessageResource {
     private String createdAt;
 
     @NotNull
-    @NotBlank
     private Long chatId;
 }
