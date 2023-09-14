@@ -26,9 +26,9 @@ public class ChatController {
         return mapper.modelListPage(chatService.getAll(), pageable);
     }
 
-    @GetMapping("{chaId}")
-    public ChatResource getChatById(@PathVariable Long chaId) {
-        return mapper.toResource(chatService.getById(chaId));
+    @GetMapping("{chatId}")
+    public ChatResource getChatById(@PathVariable Long chatId) {
+        return mapper.toResource(chatService.getById(chatId));
     }
 
     @PostMapping

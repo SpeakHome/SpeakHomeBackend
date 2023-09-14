@@ -1,10 +1,8 @@
-package com.ExcludedHouse.speakHome.chat.domain.model;
+package com.ExcludedHouse.speakHome.relation.domain.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
-
-import java.util.Set;
 
 @Getter
 @Setter
@@ -12,18 +10,18 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "chats")
-public class Chat {
+@Table(name = "friend_ships")
+public class FriendShip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    private Boolean devicePermission;
 
     @NotNull
     private Long profile1Id;
 
     @NotNull
     private Long profile2Id;
-
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "chat")
-    private Set<Message> messages;
 }
