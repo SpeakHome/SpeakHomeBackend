@@ -17,7 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api/v1/profiling/profiles", produces = "application/json")
+@RequestMapping(value = "/api/v1/security/profiles", produces = "application/json")
 @Tag(name = "Profiles", description = "Create, read, update and delete profiles")
 public class ProfileController {
   private final ProfileService profileService;

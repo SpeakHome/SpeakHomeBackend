@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api/v1/profiling/roles", produces = "application/json")
+@RequestMapping(value = "/api/v1/security/roles", produces = "application/json")
 public class RoleController {
   private final RoleService roleService;
 
