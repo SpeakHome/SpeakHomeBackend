@@ -21,13 +21,15 @@ public class Profile {
 
   @NotNull
   @NotBlank
-  @Size(max = 32)
-  private String firstName;
+  private String userName;
 
   @NotNull
   @NotBlank
-  @Size(max = 32)
-  private String lastName;
+  private String email;
+
+  @NotNull
+  @NotBlank
+  private String password;
 
   // Relationships
 

@@ -36,13 +36,6 @@ public class ProfileServiceImpl implements ProfileService {
     return profileRepository.findById(profileId)
             .orElseThrow(() -> new ResourceNotFoundException(ENTITY, profileId));
   }
-  @Override
-  public Profile getByLastName(String ProfileLastName) {
-    return profileRepository.findByLastName(ProfileLastName)
-            .orElseThrow(() -> new ResourceNotFoundException(ENTITY + " with name " + ProfileLastName + " not found."));
-  }
-  @Override
-  public List<Profile> getAllByRoleId(Long roleId) { return profileRepository.findByRoleId(roleId); }
 
   @Override
   public Profile create(Profile profile) {
@@ -62,10 +55,10 @@ public class ProfileServiceImpl implements ProfileService {
       throw new ResourceValidationException(ENTITY, violations);
 
     return profileRepository.findById(profileId)
-      .map(profileToUpdate -> profileRepository.save(
-        profileToUpdate.withFirstName(profile.getFirstName())
-          .withLastName(profile.getLastName())
-          .withRole(profile.getRole())
+      .map(profileToUpdate -> profileRepository.save(profileToUpdate
+              .withUserName(profile.getUserName())
+              .withEmail(profile.getEmail())
+              .withPassword(profile.getPassword())
         )
       )
       .orElseThrow(() -> new ResourceNotFoundException(ENTITY, profileId));

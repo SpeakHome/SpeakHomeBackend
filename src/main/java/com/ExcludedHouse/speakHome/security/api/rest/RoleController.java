@@ -32,11 +32,6 @@ public class RoleController {
     return mapper.toResource(roleService.getById(roleId));
   }
 
-  @GetMapping("name/{roleName}")
-  public RoleResource getRoleByName(@PathVariable String roleName) {
-    return mapper.toResource(roleService.getByName(roleName));
-  }
-
   @PostMapping
   public RoleResource createRole(@RequestBody CreateRoleResource resource) {
     return mapper.toResource(roleService.create(mapper.toModel(resource)));

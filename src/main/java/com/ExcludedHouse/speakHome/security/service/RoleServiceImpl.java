@@ -34,19 +34,9 @@ public class RoleServiceImpl implements RoleService {
   }
 
   @Override
-  public Page<Role> getAll(Pageable pageable) {
-    return roleRepository.findAll(pageable);
-  }
-
-  @Override
   public Role getById(Long roleId) {
     return roleRepository.findById(roleId)
       .orElseThrow(() -> new ResourceNotFoundException(ENTITY, roleId));
-  }
-  @Override
-  public Role getByName(String roleName) {
-    return roleRepository.findByName(roleName)
-            .orElseThrow(() -> new ResourceNotFoundException(ENTITY + " with name " + roleName + " not found."));
   }
   @Override
   public Role create(Role role) {
@@ -54,9 +44,6 @@ public class RoleServiceImpl implements RoleService {
 
     if (!violations.isEmpty())
       throw new ResourceValidationException(ENTITY, violations);
-
-    if (roleRepository.findByName(role.getName()).isPresent())
-      throw new ResourceValidationException(ENTITY, "An skill with the sme name already exists");
 
     return roleRepository.save(role);
   }
@@ -68,13 +55,11 @@ public class RoleServiceImpl implements RoleService {
     if (!violations.isEmpty())
       throw new ResourceValidationException(ENTITY, violations);
 
-    Optional<Role> roleWithName = roleRepository.findByName(role.getName());
-
-    if (roleWithName.isPresent() && !roleWithName.get().getId().equals(role.getId()))
-      throw new ResourceValidationException(ENTITY, "A role with the same name already exists");
-
     return roleRepository.findById(roleId)
-      .map(roleToUpdate -> roleRepository.save(roleToUpdate.withName(role.getName())))
+      .map(roleToUpdate -> roleRepository.save(roleToUpdate
+              .withName(role.getName())
+              )
+      )
       .orElseThrow(() -> new ResourceNotFoundException(ENTITY, roleId));
   }
 

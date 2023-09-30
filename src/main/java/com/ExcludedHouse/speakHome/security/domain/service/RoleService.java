@@ -9,9 +9,7 @@ import java.util.List;
 
 public interface RoleService {
   List<Role> getAll();
-  Page<Role> getAll(Pageable pageable);
   Role getById(Long roleId);
-  Role getByName(String roleName);
   Role create(Role role);
   Role update(Long roleId, Role role);
   ResponseEntity<?> delete(Long roleId);

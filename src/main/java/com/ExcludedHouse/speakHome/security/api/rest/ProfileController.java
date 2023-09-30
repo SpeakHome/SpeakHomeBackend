@@ -40,14 +40,6 @@ public class ProfileController {
   public ProfileResource getProfileById(@PathVariable Long profileId) {
     return mapper.toResource(profileService.getById(profileId));
   }
-  @GetMapping("name/{profileLastName}")
-  public ProfileResource getProfileByLastName(@PathVariable String profileLastName) {
-    return mapper.toResource(profileService.getByLastName(profileLastName));
-  }
-  @GetMapping("role/{roleId}")
-  public Page<ProfileResource> getAllProfilesByRoleId(@PathVariable Long roleId,Pageable pageable) {
-    return mapper.modelListPage(profileService.getAllByRoleId(roleId), pageable);
-  }
   @Operation(summary = "Create profile", responses = {
     @ApiResponse(
       description = "Profile successfully created",

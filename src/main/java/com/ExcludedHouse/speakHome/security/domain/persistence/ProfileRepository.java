@@ -11,7 +11,4 @@ import java.util.Optional;
 
 @Repository
 public interface ProfileRepository extends JpaRepository<Profile, Long> {
-  List<Profile> findByRoleId(Long roleId);
-  Page<Profile> findByRoleId(Long roleId, Pageable pageable);
-  Optional<Profile> findByLastName(String lastName);
 }
