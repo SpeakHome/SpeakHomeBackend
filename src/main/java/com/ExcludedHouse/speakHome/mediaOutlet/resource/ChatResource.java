@@ -11,4 +11,5 @@ public class ChatResource {
     private Long id;
     private Long profile1Id;
     private Long profile2Id;
+    private Boolean devicePermission;
 }

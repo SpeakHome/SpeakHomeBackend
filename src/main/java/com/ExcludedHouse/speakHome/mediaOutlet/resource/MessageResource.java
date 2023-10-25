@@ -2,6 +2,8 @@ package com.ExcludedHouse.speakHome.mediaOutlet.resource;
 
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @With
@@ -10,6 +12,6 @@ import lombok.*;
 public class MessageResource {
     private Long id;
     private String content;
-    private String createdAt;
+    private Date createdAt;
     private ChatResource chat;
 }

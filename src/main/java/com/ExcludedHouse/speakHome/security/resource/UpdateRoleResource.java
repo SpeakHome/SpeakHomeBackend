@@ -13,6 +13,5 @@ public class UpdateRoleResource {
 
   @NotNull
   @NotBlank
-  @Size(max = 24)
   private String name;
 }

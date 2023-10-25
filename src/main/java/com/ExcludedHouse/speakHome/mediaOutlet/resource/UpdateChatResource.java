@@ -10,9 +10,13 @@ import lombok.*;
 @AllArgsConstructor
 public class UpdateChatResource {
     private Long id;
+
     @NotNull
     private Long profile1Id;
 
     @NotNull
     private Long profile2Id;
+
+    @NotNull
+    private Boolean devicePermission;
 }

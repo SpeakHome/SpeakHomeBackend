@@ -14,4 +14,7 @@ public class CreateChatResource {
 
     @NotNull
     private Long profile2Id;
+
+    @NotNull
+    private Boolean devicePermission;
 }

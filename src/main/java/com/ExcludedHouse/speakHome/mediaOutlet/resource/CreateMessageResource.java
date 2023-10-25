@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import java.util.Date;
+
 @Getter
 @Setter
 @With
@@ -13,13 +15,11 @@ import lombok.*;
 public class CreateMessageResource {
     @NotNull
     @NotBlank
-    @Size(max = 32)
     private String content;
 
     @NotNull
     @NotBlank
-    @Size(max = 32)
-    private String createdAt;
+    private Date createdAt;
 
     @NotNull
     private Long chatId;

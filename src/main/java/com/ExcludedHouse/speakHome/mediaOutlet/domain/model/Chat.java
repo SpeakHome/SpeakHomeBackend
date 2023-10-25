@@ -24,6 +24,9 @@ public class Chat {
     @NotNull
     private Long profile2Id;
 
+    @NotNull
+    private Boolean devicePermission;
+
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "chat")
     private Set<Message> messages;
 }

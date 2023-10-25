@@ -13,7 +13,5 @@ import lombok.*;
 public class CreateRoleResource {
   @NotNull
   @NotBlank
-  @Size
-  @Size(max = 24)
   private String name;
 }
