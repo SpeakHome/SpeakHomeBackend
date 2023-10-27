@@ -49,6 +49,10 @@ public class Device {
     @Size(max = 64)
     private String description;
 
+    @NotNull
+    @NotBlank
+    private String pictureUrl;
+
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "location_id", nullable = false)
     @JsonIgnore

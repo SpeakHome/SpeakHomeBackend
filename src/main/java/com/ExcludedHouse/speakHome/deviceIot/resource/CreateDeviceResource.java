@@ -40,6 +40,10 @@ public class CreateDeviceResource {
     private String description;
 
     @NotNull
+    @NotBlank
+    private String pictureUrl;
+
+    @NotNull
     private Long locationId;
 
     @NotNull

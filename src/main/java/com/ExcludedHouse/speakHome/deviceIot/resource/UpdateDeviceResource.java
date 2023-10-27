@@ -39,4 +39,8 @@ public class UpdateDeviceResource {
     @NotBlank
     @Size(max = 64)
     private String description;
+
+    @NotNull
+    @NotBlank
+    private String pictureUrl;
 }

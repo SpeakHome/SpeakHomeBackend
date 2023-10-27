@@ -15,6 +15,7 @@ public class DeviceResource {
     private String lastUpdate;
     private Boolean isOnline;
     private String description;
+    private String pictureUrl;
     private LocationResource location;
     private DeviceStatusResource deviceStatus;
 }

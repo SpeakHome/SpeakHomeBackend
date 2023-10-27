@@ -61,6 +61,7 @@ public class DeviceServiceImpl implements DeviceService {
                                 .withLastUpdate(device.getLastUpdate())
                                 .withIsOnline(device.getIsOnline())
                                 .withDescription(device.getDescription())
+                                .withPictureUrl(device.getPictureUrl())
                         )
                 )
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, deviceId));
