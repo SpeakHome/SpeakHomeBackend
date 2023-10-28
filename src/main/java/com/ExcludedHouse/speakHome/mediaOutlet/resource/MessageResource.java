@@ -13,5 +13,5 @@ public class MessageResource {
     private Long id;
     private String content;
     private Date createdAt;
-    private ChatResource chat;
+    private ContactResource chat;
 }

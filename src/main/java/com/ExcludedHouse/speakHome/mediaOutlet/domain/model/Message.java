@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.util.Date;
@@ -29,7 +28,7 @@ public class Message {
     private Date createdAt;
 
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "chat_id", nullable = false)
+    @JoinColumn(name = "contact_id", nullable = false)
     @JsonIgnore
-    private Chat chat;
+    private Contact contact;
 }

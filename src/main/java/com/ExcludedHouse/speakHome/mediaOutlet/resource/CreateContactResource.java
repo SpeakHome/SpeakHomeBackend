@@ -1,5 +1,6 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.resource;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -8,9 +9,7 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class UpdateChatResource {
-    private Long id;
-
+public class CreateContactResource {
     @NotNull
     private Long profile1Id;
 

@@ -7,7 +7,7 @@ import lombok.*;
 @With
 @NoArgsConstructor
 @AllArgsConstructor
-public class ChatResource {
+public class ContactResource {
     private Long id;
     private Long profile1Id;
     private Long profile2Id;
