@@ -25,11 +25,6 @@ public class Location {
     @Size(max = 32)
     private String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 64)
-    private String description;
-
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "location")
     private Set<Device> devices;
 }

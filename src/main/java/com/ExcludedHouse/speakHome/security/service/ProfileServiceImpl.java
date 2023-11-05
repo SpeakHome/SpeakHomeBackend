@@ -32,6 +32,12 @@ public class ProfileServiceImpl implements ProfileService {
   }
 
   @Override
+  public Profile getByEmailAndPassword(String email, String password) {
+    return profileRepository.findByEmailAndPassword(email, password)
+            .orElseThrow(() -> new ResourceNotFoundException("Profile not found with provided credentials."));
+  }
+
+  @Override
   public Profile getById(Long profileId) {
     return profileRepository.findById(profileId)
             .orElseThrow(() -> new ResourceNotFoundException(ENTITY, profileId));

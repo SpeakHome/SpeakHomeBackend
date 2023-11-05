@@ -1,5 +1,8 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.domain.model;
 
+import com.ExcludedHouse.speakHome.security.domain.model.Profile;
+import com.ExcludedHouse.speakHome.security.domain.model.Role;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -20,13 +23,15 @@ public class Contact {
     private Long id;
 
     @NotNull
-    private Long profile1Id;
-
-    @NotNull
-    private Long profile2Id;
+    private Long profileId;
 
     @NotNull
     private Boolean devicePermission;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "contact_profile_id", nullable = false)
+    @JsonIgnore
+    private Profile contactProfile;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "contact")
     private Set<Message> messages;

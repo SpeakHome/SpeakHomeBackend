@@ -3,6 +3,8 @@ package com.ExcludedHouse.speakHome.mediaOutlet.service;
 import com.ExcludedHouse.speakHome.mediaOutlet.domain.model.Contact;
 import com.ExcludedHouse.speakHome.mediaOutlet.domain.persistence.ContactRepository;
 import com.ExcludedHouse.speakHome.mediaOutlet.domain.service.ContactService;
+import com.ExcludedHouse.speakHome.security.domain.model.Profile;
+import com.ExcludedHouse.speakHome.security.domain.persistence.ProfileRepository;
 import com.ExcludedHouse.speakHome.shared.exception.ResourceNotFoundException;
 import com.ExcludedHouse.speakHome.shared.exception.ResourceValidationException;
 import jakarta.validation.ConstraintViolation;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class ContactServiceImpl implements ContactService {
@@ -28,6 +31,11 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public List<Contact> getAll() {return contactRepository.findAll();}
+
+    @Override
+    public List<Contact> getByProfileIdAndRoleName(Long profileId, String roleName) {
+        return contactRepository.findByProfileIdAndContactProfileRoleName(profileId, roleName);
+    }
 
     @Override
     public Contact getById(Long contactId) {
@@ -54,8 +62,7 @@ public class ContactServiceImpl implements ContactService {
 
         return contactRepository.findById(contactId)
                 .map(contactToUpdate -> contactRepository.save(contactToUpdate
-                                .withProfile1Id(contact.getProfile1Id())
-                                .withProfile2Id(contact.getProfile2Id())
+                                .withDevicePermission(contact.getDevicePermission())
                         )
                 )
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, contactId));
@@ -70,4 +77,5 @@ public class ContactServiceImpl implements ContactService {
                 })
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, contactId));
     }
+
 }

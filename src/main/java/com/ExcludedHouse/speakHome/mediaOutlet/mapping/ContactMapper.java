@@ -4,6 +4,7 @@ import com.ExcludedHouse.speakHome.mediaOutlet.domain.model.Contact;
 import com.ExcludedHouse.speakHome.mediaOutlet.resource.ContactResource;
 import com.ExcludedHouse.speakHome.mediaOutlet.resource.CreateContactResource;
 import com.ExcludedHouse.speakHome.mediaOutlet.resource.UpdateContactResource;
+import com.ExcludedHouse.speakHome.security.domain.service.ProfileService;
 import com.ExcludedHouse.speakHome.shared.mapping.EnhancedModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,7 +17,8 @@ import java.util.List;
 public class ContactMapper implements Serializable {
     @Autowired
     private EnhancedModelMapper mapper;
-
+    @Autowired
+    private ProfileService profileService;
     public ContactResource toResource(Contact model) {
         return mapper.map(model, ContactResource.class);
     }
@@ -24,8 +26,8 @@ public class ContactMapper implements Serializable {
     public Contact toModel(CreateContactResource resource) {
         /*return mapper.map(resource, contact.class);*/
         Contact contact = new Contact();
-        contact.setProfile1Id(resource.getProfile1Id());
-        contact.setProfile2Id(resource.getProfile2Id());
+        contact.setProfileId(resource.getProfileId());
+        contact.setContactProfile(profileService.getById(resource.getContactProfileId()));
         contact.setDevicePermission(resource.getDevicePermission());
         return contact;
     }

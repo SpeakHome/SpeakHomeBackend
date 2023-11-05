@@ -11,10 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 public class CreateContactResource {
     @NotNull
-    private Long profile1Id;
+    private Long profileId;
 
     @NotNull
-    private Long profile2Id;
+    private Long contactProfileId;
 
     @NotNull
     private Boolean devicePermission;

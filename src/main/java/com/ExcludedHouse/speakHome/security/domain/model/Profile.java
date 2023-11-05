@@ -1,11 +1,15 @@
 package com.ExcludedHouse.speakHome.security.domain.model;
 
+import com.ExcludedHouse.speakHome.mediaOutlet.domain.model.Contact;
+import com.ExcludedHouse.speakHome.mediaOutlet.domain.model.Message;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
+
+import java.util.Set;
 
 @Getter
 @Setter
@@ -37,4 +41,7 @@ public class Profile {
   @JoinColumn(name = "role_id", nullable = false)
   @JsonIgnore
   private Role role;
+
+  @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "contactProfile")
+  private Set<Contact> contacts;
 }

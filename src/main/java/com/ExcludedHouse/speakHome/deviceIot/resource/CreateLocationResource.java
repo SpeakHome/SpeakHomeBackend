@@ -15,9 +15,4 @@ public class CreateLocationResource {
     @NotBlank
     @Size(max = 32)
     private String name;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 64)
-    private String description;
 }

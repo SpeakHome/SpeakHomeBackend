@@ -10,5 +10,4 @@ import lombok.*;
 public class LocationResource {
     private Long id;
     private String name;
-    private String description;
 }

@@ -1,8 +1,10 @@
 package com.ExcludedHouse.speakHome.security.api.rest;
 
+import com.ExcludedHouse.speakHome.security.domain.model.Profile;
 import com.ExcludedHouse.speakHome.security.domain.service.ProfileService;
 import com.ExcludedHouse.speakHome.security.mapping.ProfileMapper;
 import com.ExcludedHouse.speakHome.security.resource.CreateProfileResource;
+import com.ExcludedHouse.speakHome.security.resource.LoginRequest;
 import com.ExcludedHouse.speakHome.security.resource.ProfileResource;
 import com.ExcludedHouse.speakHome.security.resource.UpdateProfileResource;
 import io.swagger.v3.oas.annotations.Operation;
@@ -40,6 +42,14 @@ public class ProfileController {
   public ProfileResource getProfileById(@PathVariable Long profileId) {
     return mapper.toResource(profileService.getById(profileId));
   }
+
+  @Operation(summary = "Login profile by email and password")
+  @PostMapping("/login") // Usar POST para el login es lo común
+  public ProfileResource login(@RequestBody LoginRequest loginResource) {
+    Profile profile = profileService.getByEmailAndPassword(loginResource.getEmail(), loginResource.getPassword());
+    return mapper.toResource(profile);
+  }
+
   @Operation(summary = "Create profile", responses = {
     @ApiResponse(
       description = "Profile successfully created",

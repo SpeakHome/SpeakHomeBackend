@@ -1,5 +1,6 @@
 package com.ExcludedHouse.speakHome.deviceIot.service;
 
+import com.ExcludedHouse.speakHome.deviceIot.domain.model.Device;
 import com.ExcludedHouse.speakHome.deviceIot.domain.model.ProfileDevice;
 import com.ExcludedHouse.speakHome.deviceIot.domain.persistence.ProfileDeviceRepository;
 import com.ExcludedHouse.speakHome.deviceIot.domain.service.ProfileDeviceService;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+
 @Service
 public class ProfileDeviceServiceImpl implements ProfileDeviceService {
     private static final String ENTITY = "ProfileDevice";
@@ -28,6 +31,17 @@ public class ProfileDeviceServiceImpl implements ProfileDeviceService {
     @Override
     public List<ProfileDevice> getAll() {
         return profileDeviceRepository.findAll();
+    }
+
+    @Override
+    public List<Device> findDevicesByProfileId(Long profileId) {
+        // Obtener todos los ProfileDevice asociados con el profileId
+        List<ProfileDevice> profileDevices = profileDeviceRepository.findByProfileId(profileId);
+
+        // Convertir la lista de ProfileDevice a una lista de Device
+        return profileDevices.stream()
+                .map(ProfileDevice::getDevice)
+                .collect(Collectors.toList());
     }
 
     @Override

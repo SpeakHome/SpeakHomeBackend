@@ -1,5 +1,6 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.resource;
 
+import com.ExcludedHouse.speakHome.security.resource.ProfileResource;
 import lombok.*;
 
 @Getter
@@ -9,7 +10,7 @@ import lombok.*;
 @AllArgsConstructor
 public class ContactResource {
     private Long id;
-    private Long profile1Id;
-    private Long profile2Id;
+    private Long profileId;
+    private ProfileResource contactProfile;
     private Boolean devicePermission;
 }
