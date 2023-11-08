@@ -56,7 +56,6 @@ public class LocationServiceImpl implements LocationService {
         return locationRepository.findById(locationId)
                 .map(locationToUpdate -> locationRepository.save(locationToUpdate
                                 .withName(location.getName())
-                                .withDescription(location.getDescription())
                         )
                 )
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, locationId));

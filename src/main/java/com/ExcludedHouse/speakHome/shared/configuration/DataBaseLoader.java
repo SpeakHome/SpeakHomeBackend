@@ -48,10 +48,29 @@ public class DataBaseLoader implements CommandLineRunner {
 
     private void loadLocations() {
         if (locationRepository.count() == 0) { // Asumiendo que hay un método count()
-            locationRepository.save(new Location(null, "Cocina", new HashSet<>()));
+            locationRepository.save(new Location(null, "Vestíbulo", new HashSet<>()));
             locationRepository.save(new Location(null, "Sala de Estar", new HashSet<>()));
+            locationRepository.save(new Location(null, "Comedor", new HashSet<>()));
+            locationRepository.save(new Location(null, "Cocina", new HashSet<>()));
+
+            locationRepository.save(new Location(null, "Dormitorio Principal", new HashSet<>()));
+            locationRepository.save(new Location(null, "Dormitorio de Invitados", new HashSet<>()));
+            locationRepository.save(new Location(null, "Baño Principal", new HashSet<>()));
+            locationRepository.save(new Location(null, "Baño Secundario", new HashSet<>()));
+
+            locationRepository.save(new Location(null, "Estudio", new HashSet<>()));
+            locationRepository.save(new Location(null, "Sala de Juegos", new HashSet<>()));
+            locationRepository.save(new Location(null, "Gimnasio", new HashSet<>()));
+            locationRepository.save(new Location(null, "Lavandería", new HashSet<>()));
+
+            locationRepository.save(new Location(null, "Terraza", new HashSet<>()));
+            locationRepository.save(new Location(null, "Patio", new HashSet<>()));
+            locationRepository.save(new Location(null, "Jardín", new HashSet<>()));
             locationRepository.save(new Location(null, "Garaje", new HashSet<>()));
-            // ... más ubicaciones si es necesario
+
+            locationRepository.save(new Location(null, "Sótano", new HashSet<>()));
+            locationRepository.save(new Location(null, "Ático", new HashSet<>()));
+            // Puedes continuar agregando más ubicaciones si es necesario
         }
     }
 

@@ -15,7 +15,7 @@ public class CreateDeviceResource {
     @NotBlank
     @Size(max = 32)
     private String name;
-
+/*
     @NotNull
     @NotBlank
     @Size(max = 32)
@@ -25,7 +25,11 @@ public class CreateDeviceResource {
     @NotBlank
     @Size(max = 1000)
     private String data;//json en txt
-
+*/
+    @NotNull
+    @NotBlank
+    private String baseUrl;
+/*
     @NotNull
     @NotBlank
     @Size(max = 32)
@@ -33,7 +37,7 @@ public class CreateDeviceResource {
 
     @NotNull
     private Boolean isOnline;
-
+*/
     @NotNull
     @NotBlank
     @Size(max = 64)

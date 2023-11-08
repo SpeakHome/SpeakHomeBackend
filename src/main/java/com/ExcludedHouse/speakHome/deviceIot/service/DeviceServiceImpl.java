@@ -45,7 +45,27 @@ public class DeviceServiceImpl implements DeviceService {
 
         return deviceRepository.save(device);
     }
+    /*
+    @Override
+    public Device update(Long deviceId, Device device) {
+        // Obtener el dispositivo actual de la base de datos
+        Device deviceToUpdate = deviceRepository.findById(deviceId)
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, deviceId));
 
+        // Aplicar los cambios solo a los campos que se quieren actualizar
+        if (device.getName() != null) deviceToUpdate.setName(device.getName());
+        if (device.getBaseUrl() != null) deviceToUpdate.setBaseUrl(device.getBaseUrl());
+        if (device.getDescription() != null) deviceToUpdate.setDescription(device.getDescription());
+        if (device.getPictureUrl() != null) deviceToUpdate.setPictureUrl(device.getPictureUrl());
+
+        // La validación se debería hacer aquí para verificar los campos actualizables
+        Set<ConstraintViolation<Device>> violations = validator.validate(deviceToUpdate);
+        if (!violations.isEmpty()) throw new ResourceValidationException(ENTITY, violations);
+
+        // Guardar el dispositivo actualizado
+        return deviceRepository.save(deviceToUpdate);
+    }
+    */
     @Override
     public Device update(Long deviceId, Device device) {
         Set<ConstraintViolation<Device>> violations = validator.validate(device);
@@ -56,10 +76,7 @@ public class DeviceServiceImpl implements DeviceService {
         return deviceRepository.findById(deviceId)
                 .map(deviceToUpdate -> deviceRepository.save(deviceToUpdate
                                 .withName(device.getName())
-                                .withType(device.getType())
-                                .withData(device.getData())
-                                .withLastUpdate(device.getLastUpdate())
-                                .withIsOnline(device.getIsOnline())
+                                .withBaseUrl(device.getBaseUrl())
                                 .withDescription(device.getDescription())
                                 .withPictureUrl(device.getPictureUrl())
                         )
@@ -71,6 +88,8 @@ public class DeviceServiceImpl implements DeviceService {
     public ResponseEntity<?> delete(Long deviceId) {
         return deviceRepository.findById(deviceId)
                 .map(device -> {
+                    device.getProfileDevices().clear();
+                    deviceRepository.save(device);
                     deviceRepository.delete(device);
                     return ResponseEntity.ok().build();
                 })

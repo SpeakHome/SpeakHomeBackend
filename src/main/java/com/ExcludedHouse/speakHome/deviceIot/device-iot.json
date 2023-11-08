@@ -1,0 +1,42 @@
+{
+  "data": {
+  "state": "on",
+  "brightness": 75
+  },
+  "commands": {
+    "buttons": [
+      {
+        "id": 1,
+        "name": "Turn On",
+        "action": "turn_on",
+        "endpoint": "/data/state",
+        "method": "PUT",
+        "body": {
+          "state": "on"
+        }
+      },
+      {
+        "id": 2,
+        "name": "Turn Off",
+        "action": "turn_off",
+        "endpoint": "/data/state",
+        "method": "PUT",
+        "body": {
+          "state": "off"
+        }
+      }
+    ],
+    "seekBars": [
+      {
+        "id": 1,
+        "name": "Adjust Brightness",
+        "action": "set_brightness",
+        "endpoint": "/data/brightness",
+        "method": "PUT",
+        "body": {
+          "brightness": "value"
+        }
+      }
+    ]
+  }
+}

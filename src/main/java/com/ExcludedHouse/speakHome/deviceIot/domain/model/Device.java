@@ -25,7 +25,7 @@ public class Device {
     @NotBlank
     @Size(max = 32)
     private String name;
-
+/*
     @NotNull
     @NotBlank
     @Size(max = 32)
@@ -35,7 +35,11 @@ public class Device {
     @NotBlank
     @Size(max = 1000)
     private String data;//json en txt
-
+*/
+    @NotNull
+    @NotBlank
+    private String baseUrl;
+/*
     @NotNull
     @NotBlank
     @Size(max = 32)
@@ -43,7 +47,7 @@ public class Device {
 
     @NotNull
     private Boolean isOnline;
-
+*/
     @NotNull
     @NotBlank
     @Size(max = 64)

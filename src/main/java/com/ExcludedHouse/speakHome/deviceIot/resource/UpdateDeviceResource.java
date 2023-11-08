@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UpdateDeviceResource {
-    private Long id;
+
     @NotNull
     @NotBlank
     @Size(max = 32)
@@ -19,21 +19,7 @@ public class UpdateDeviceResource {
 
     @NotNull
     @NotBlank
-    @Size(max = 32)
-    private String type;
-
-    @NotNull
-    @NotBlank
-    @Size(max = 1000)
-    private String data;//json en txt
-
-    @NotNull
-    @NotBlank
-    @Size(max = 32)
-    private String lastUpdate;
-
-    @NotNull
-    private Boolean isOnline;
+    private String baseUrl;
 
     @NotNull
     @NotBlank
