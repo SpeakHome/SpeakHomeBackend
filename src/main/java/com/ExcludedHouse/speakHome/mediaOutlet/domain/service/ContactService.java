@@ -8,6 +8,7 @@ import java.util.List;
 public interface ContactService {
     List<Contact> getAll();
     List<Contact> getByProfileIdAndRoleName(Long profileId, String roleName);
+    Contact getByProfileIdAndContactProfileId(Long profileId, Long contactProfileId);
     Contact getById(Long contactId);
     Contact create(Contact contact);
     Contact update(Long contactId, Contact contact);

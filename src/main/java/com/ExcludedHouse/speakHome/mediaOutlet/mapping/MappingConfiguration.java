@@ -11,7 +11,12 @@ public class MappingConfiguration {
     }
 
     @Bean
-    public ContactMapper ChatMapper() {
+    public ContactMapper contactMapper() {
         return new ContactMapper();
+    }
+
+    @Bean
+    public ContactMessageMapper contactMessageMapper() {
+        return new ContactMessageMapper();
     }
 }

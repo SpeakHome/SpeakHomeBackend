@@ -36,6 +36,11 @@ public class ContactServiceImpl implements ContactService {
     public List<Contact> getByProfileIdAndRoleName(Long profileId, String roleName) {
         return contactRepository.findByProfileIdAndContactProfileRoleName(profileId, roleName);
     }
+    @Override
+    public Contact getByProfileIdAndContactProfileId(Long profileId, Long contactProfileId) {
+        return contactRepository.findByProfileIdAndContactProfileId(profileId, contactProfileId)
+                .orElseThrow(() -> new ResourceNotFoundException(ENTITY, profileId));
+    }
 
     @Override
     public Contact getById(Long contactId) {

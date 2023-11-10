@@ -32,6 +32,15 @@ public class ContactMapper implements Serializable {
         return contact;
     }
 
+    public Contact toModelReversed(CreateContactResource resource) {
+        /*return mapper.map(resource, contact.class);*/
+        Contact contact = new Contact();
+        contact.setProfileId(resource.getContactProfileId());
+        contact.setContactProfile(profileService.getById(resource.getProfileId()));
+        contact.setDevicePermission(resource.getDevicePermission());
+        return contact;
+    }
+
     public Contact toModel(UpdateContactResource resource) {
         return mapper.map(resource, Contact.class);
     }

@@ -1,7 +1,10 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.resource;
 
+import com.ExcludedHouse.speakHome.mediaOutlet.domain.model.Message;
 import com.ExcludedHouse.speakHome.security.resource.ProfileResource;
 import lombok.*;
+
+import java.util.Set;
 
 @Getter
 @Setter

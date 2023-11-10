@@ -1,12 +1,12 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.util.Date;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,8 +27,6 @@ public class Message {
     @NotNull
     private Date createdAt;
 
-    @ManyToOne(fetch = FetchType.EAGER, optional = false)
-    @JoinColumn(name = "contact_id", nullable = false)
-    @JsonIgnore
-    private Contact contact;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "message")
+    private Set<ContactMessage> contactMessages;
 }

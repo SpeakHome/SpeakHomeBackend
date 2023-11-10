@@ -11,6 +11,7 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 public class MessageMapper implements Serializable {
@@ -22,7 +23,11 @@ public class MessageMapper implements Serializable {
     }
 
     public Message toModel(CreateMessageResource resource) {
-        return mapper.map(resource, Message.class);
+        Message message=new Message();
+        message.setContent(resource.getContent());
+        message.setCreatedAt(new Date());
+        return message;
+        //return mapper.map(resource, Message.class);
     }
 
     public Message toModel(UpdateMessageResource resource) {

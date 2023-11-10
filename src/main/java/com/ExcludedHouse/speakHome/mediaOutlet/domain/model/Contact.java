@@ -1,10 +1,8 @@
 package com.ExcludedHouse.speakHome.mediaOutlet.domain.model;
 
 import com.ExcludedHouse.speakHome.security.domain.model.Profile;
-import com.ExcludedHouse.speakHome.security.domain.model.Role;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -34,5 +32,5 @@ public class Contact {
     private Profile contactProfile;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "contact")
-    private Set<Message> messages;
+    private Set<ContactMessage> contactMessages;
 }
