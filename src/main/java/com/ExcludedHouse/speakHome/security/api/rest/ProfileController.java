@@ -42,7 +42,10 @@ public class ProfileController {
   public ProfileResource getProfileById(@PathVariable Long profileId) {
     return mapper.toResource(profileService.getById(profileId));
   }
-
+  @GetMapping("{userName}")
+  public ProfileResource getProfileByUserName(@PathVariable String userName) {
+    return mapper.toResource(profileService.getByUserName(userName));
+  }
   @Operation(summary = "Login profile by email and password")
   @PostMapping("/login") // Usar POST para el login es lo común
   public ProfileResource login(@RequestBody LoginRequest loginResource) {

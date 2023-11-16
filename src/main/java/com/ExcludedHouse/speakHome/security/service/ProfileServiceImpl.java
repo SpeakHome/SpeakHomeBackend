@@ -42,7 +42,11 @@ public class ProfileServiceImpl implements ProfileService {
     return profileRepository.findById(profileId)
             .orElseThrow(() -> new ResourceNotFoundException(ENTITY, profileId));
   }
-
+  @Override
+  public Profile getByUserName(String userName) {
+    return profileRepository.findByUserName(userName)
+            .orElseThrow(() -> new ResourceNotFoundException(userName));
+  }
   @Override
   public Profile create(Profile profile) {
     Set<ConstraintViolation<Profile>> violations = validator.validate(profile);

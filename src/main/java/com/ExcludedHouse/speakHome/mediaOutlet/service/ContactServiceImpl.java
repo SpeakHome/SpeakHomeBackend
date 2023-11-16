@@ -43,6 +43,12 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
+    public Contact getByContactUserName(String userName) {
+        return contactRepository.findByContactProfileUserName(userName)
+                .orElseThrow(() -> new ResourceNotFoundException(userName));
+    }
+
+    @Override
     public Contact getById(Long contactId) {
         return contactRepository.findById(contactId)
                 .orElseThrow(() -> new ResourceNotFoundException(ENTITY, contactId));

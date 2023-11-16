@@ -47,8 +47,14 @@ public class ContactController {
         return mapper.toResource(contactService.getById(contactId));
     }
 
+    @GetMapping("{userName}")
+    public ContactResource getContactByContactUserName(@PathVariable String userName) {
+        return mapper.toResource(contactService.getByContactUserName(userName));
+    }
+
     @PostMapping
     public ContactResource createContact(@RequestBody CreateContactResource resource) {
+        mapper.toResource(contactService.create(mapper.toModelReversed(resource)));
         return mapper.toResource(contactService.create(mapper.toModel(resource)));
     }
 

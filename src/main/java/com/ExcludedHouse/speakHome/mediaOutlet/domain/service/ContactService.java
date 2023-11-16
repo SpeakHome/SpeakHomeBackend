@@ -9,6 +9,7 @@ public interface ContactService {
     List<Contact> getAll();
     List<Contact> getByProfileIdAndRoleName(Long profileId, String roleName);
     Contact getByProfileIdAndContactProfileId(Long profileId, Long contactProfileId);
+    Contact getByContactUserName(String userName);
     Contact getById(Long contactId);
     Contact create(Contact contact);
     Contact update(Long contactId, Contact contact);
