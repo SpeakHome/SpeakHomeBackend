@@ -42,7 +42,7 @@ public class ProfileController {
   public ProfileResource getProfileById(@PathVariable Long profileId) {
     return mapper.toResource(profileService.getById(profileId));
   }
-  @GetMapping("{userName}")
+  @GetMapping("/by-userName/{userName}")
   public ProfileResource getProfileByUserName(@PathVariable String userName) {
     return mapper.toResource(profileService.getByUserName(userName));
   }
