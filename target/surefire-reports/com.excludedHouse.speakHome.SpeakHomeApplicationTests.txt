@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.excludedHouse.speakHome.SpeakHomeApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.81 s - in com.excludedHouse.speakHome.SpeakHomeApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.199 s - in com.excludedHouse.speakHome.SpeakHomeApplicationTests
