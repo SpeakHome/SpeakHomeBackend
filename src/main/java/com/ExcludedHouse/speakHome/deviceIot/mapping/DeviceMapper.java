@@ -34,6 +34,7 @@ public class DeviceMapper  implements Serializable {
         device.setName(resource.getName());
         device.setBaseUrl(resource.getBaseUrl());
         device.setDescription(resource.getDescription());
+        device.setPictureUrl(resource.getPictureUrl());
         device.setLocation(locationService.getById(resource.getLocationId()));
         device.setDeviceStatus(deviceStatusService.getById(resource.getDeviceStatusId()));
         return device;
