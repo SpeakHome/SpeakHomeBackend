@@ -22,7 +22,9 @@ public class DeviceStatusMapper implements Serializable {
     }
 
     public DeviceStatus toModel(CreateDeviceStatusResource resource) {
-        return mapper.map(resource, DeviceStatus.class);
+        DeviceStatus deviceStatus=new DeviceStatus();
+        deviceStatus.setName(resource.getName());
+        return deviceStatus;
     }
 
     public DeviceStatus toModel(UpdateDeviceStatusResource resource) {

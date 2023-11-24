@@ -28,8 +28,7 @@ public class ProfileDeviceMapper implements Serializable {
         /*return mapper.map(resource, ProfileDevice.class);*/
         ProfileDevice profileDevice = new ProfileDevice();
         profileDevice.setProfileId(resource.getProfileId());
-        Device device = deviceService.getById(resource.getDeviceId());
-        profileDevice.setDevice(device);
+        profileDevice.setDevice(deviceService.getById(resource.getDeviceId()));
         return profileDevice;
     }
 

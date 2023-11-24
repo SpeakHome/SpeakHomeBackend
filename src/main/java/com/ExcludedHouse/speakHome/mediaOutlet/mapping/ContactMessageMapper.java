@@ -29,20 +29,10 @@ public class ContactMessageMapper implements Serializable {
         return mapper.map(model, ContactMessageResource.class);
     }
 
-    //public ContactMessage toModel(CreateContactMessageResource resource) { return mapper.map(resource, ContactMessage.class); }
-    //@Transactional
     public ContactMessage toModel(CreateContactMessageResource resource) {
-        // Crea la instancia de ContactMessage
         ContactMessage contactMessage = new ContactMessage();
-
-        // Usa los servicios para cargar las instancias de Contact y Message basadas en los IDs proporcionados
-        Contact contact = contactService.getById(resource.getContactId());
-        Message message = messageService.getById(resource.getMessageId());
-
-        // Asigna las entidades encontradas a la nueva instancia de ContactMessage
-        contactMessage.setContact(contact);
-        contactMessage.setMessage(message);
-
+        contactMessage.setContact(contactService.getById(resource.getContactId()));
+        contactMessage.setMessage(messageService.getById(resource.getMessageId()));
         return contactMessage;
     }
 

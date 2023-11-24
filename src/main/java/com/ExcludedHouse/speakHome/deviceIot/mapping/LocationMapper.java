@@ -22,7 +22,9 @@ public class LocationMapper implements Serializable {
     }
 
     public Location toModel(CreateLocationResource resource) {
-        return mapper.map(resource, Location.class);
+        Location location=new Location();
+        location.setName(resource.getName());
+        return location;
     }
 
     public Location toModel(UpdateLocationResource resource) {

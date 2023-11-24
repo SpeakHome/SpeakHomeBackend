@@ -22,7 +22,9 @@ public class RoleMapper {
   }
 
   public Role toModel(CreateRoleResource resource) {
-    return mapper.map(resource, Role.class);
+    Role role=new Role();
+    role.setName(resource.getName());
+    return role;
   }
 
   public Role toModel(UpdateRoleResource resource) {
